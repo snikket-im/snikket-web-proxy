@@ -1,6 +1,6 @@
 server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
-    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl ipv6only=on;
+    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
     ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
     ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
@@ -69,7 +69,7 @@ server {
 
 server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
-    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl ipv6only=on;
+    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
     ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
     ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
