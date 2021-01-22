@@ -10,7 +10,7 @@ CMD ["/bin/sh", "/entrypoint.sh"]
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-        tini nginx supervisor gettext-base \
+        tini nginx supervisor gettext-base libjs-bootstrap4 libjs-jquery \
     && rm -rf /var/lib/apt/lists/* \
     && apt-get autoremove -y \
     && rm -rf /var/cache/*

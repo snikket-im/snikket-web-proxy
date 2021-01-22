@@ -12,6 +12,10 @@ server {
         try_files $uri @portal;
     }
 
+    location /share/ {
+        root /usr/share/javascript;
+    }
+
     location @portal {
         proxy_pass http://localhost:${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_PORT};
         proxy_set_header  Host            $host;
