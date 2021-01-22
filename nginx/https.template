@@ -21,8 +21,8 @@ server {
         try_files $uri /static/$uri @portal;
     }
 
-    location /share/ {
-        root /usr/share/javascript;
+    location /share {
+        alias /usr/share/javascript;
     }
 
     location @portal {
