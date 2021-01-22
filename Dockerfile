@@ -21,3 +21,4 @@ ADD nginx/http.template /etc/nginx/templates/http
 ADD nginx/https.template /etc/nginx/templates/https
 ADD supervisord.conf /etc/supervisord/supervisord.conf
 ADD cert-monitor.sh /usr/local/bin/cert-monitor.sh
+ADD static /var/www/html/static
