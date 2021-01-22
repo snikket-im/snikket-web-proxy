@@ -9,7 +9,7 @@ server {
     root /var/www/html;
 
     location / {
-        try_files $uri @portal;
+        try_files static/$uri @portal;
     }
 
     location /share/ {
