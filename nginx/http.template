@@ -12,8 +12,36 @@ server {
         try_files $uri /static/$uri @portal;
     }
 
+    location /admin_api {
+        try_files none @prosody;
+    }
+
+    location /invite {
+        try_files none @prosody;
+    }
+
+    location /invites_api {
+        try_files none @prosody;
+    }
+
+    location /oauth2 {
+        try_files none @prosody;
+    }
+
+    location /register {
+        try_files none @prosody;
+    }
+
+    location /rest {
+        try_files none @prosody;
+    }
+
     location /share {
         alias /usr/share/javascript;
+    }
+
+    location /upload {
+        try_files none @prosody;
     }
 
     location @portal {
@@ -23,8 +51,8 @@ server {
         proxy_set_header  X-Forwarded-Proto https;
     }
 
-    location /_/ {
-        proxy_pass http://localhost:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT}/;
+    location @prosody {
+        proxy_pass http://localhost:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT};
         proxy_set_header  Host            $host;
         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header  X-Forwarded-Proto https;
