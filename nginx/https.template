@@ -24,19 +24,11 @@ server {
         try_files none @prosody;
     }
 
-    location /invite {
-        try_files none @prosody;
-    }
-
     location /invites_api {
         try_files none @prosody;
     }
 
     location /oauth2 {
-        try_files none @prosody;
-    }
-
-    location /register {
         try_files none @prosody;
     }
 
