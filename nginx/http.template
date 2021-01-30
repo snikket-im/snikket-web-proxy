@@ -6,5 +6,11 @@ server {
     server_name groups.${SNIKKET_DOMAIN};
     server_name share.${SNIKKET_DOMAIN};
 
-    return 301 https://$host$request_uri;
+    location /.well-known/acme-challenge {
+        alias /var/www/html/.well-known/acme-challenge;
+    }
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
 }
