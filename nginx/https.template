@@ -44,8 +44,8 @@ server {
 
 # Fail requests to unknown domains
 server {
-    listen 443 ssl default_server;
-    listen [::]:443 ssl default_server;
+    listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
+    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
 
     ssl_certificate     /snikket/letsencrypt/live/snikket.chat/fullchain.pem;
     ssl_certificate_key /snikket/letsencrypt/live/snikket.chat/privkey.pem;
