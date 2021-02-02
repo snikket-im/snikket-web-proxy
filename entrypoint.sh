@@ -8,6 +8,8 @@ if test -f "$CERT_PATH"; then
 	for proto in http https; do
 		/usr/local/bin/render-template.sh "/etc/nginx/templates/$proto" "/etc/nginx/sites-enabled/$proto";
 	done
+else
+	/usr/local/bin/render-template.sh "/etc/nginx/templates/startup.template" "/etc/nginx/sites-enabled/startup";
 fi
 
 exec supervisord -c /etc/supervisord/supervisord.conf
