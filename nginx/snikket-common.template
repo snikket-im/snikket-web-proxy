@@ -26,7 +26,6 @@ location /share {
 
 location /upload {
 	try_files none @prosody;
-        client_max_body_size 16M;
 }
 
 location @portal {
