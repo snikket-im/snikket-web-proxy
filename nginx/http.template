@@ -22,5 +22,12 @@ server {
 
     error_page 404 /_errors/404_site.html;
 
-    return 404;
+    location = /_errors/404_site.html {
+        root /var/www/html;
+        internal;
+    }
+
+    location / {
+        try_files none =404;
+    }
 }
