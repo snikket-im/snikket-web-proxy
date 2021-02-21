@@ -36,6 +36,14 @@ location /xmpp-websocket {
 	try_files none @prosodyws;
 }
 
+location = /.well-known/host-meta {
+	try_files none @prosody;
+}
+
+location = /.well-known/host-meta.json {
+	try_files none @prosody;
+}
+
 location @portal {
 	proxy_pass http://${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_HOST}:${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_PORT};
 	proxy_set_header  Host            $host;
