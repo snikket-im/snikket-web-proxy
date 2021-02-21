@@ -28,6 +28,14 @@ location /upload {
 	try_files none @prosody;
 }
 
+location /http-bind {
+	try_files none @prosodyws;
+}
+
+location /xmpp-websocket {
+	try_files none @prosodyws;
+}
+
 location @portal {
 	proxy_pass http://${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_HOST}:${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_PORT};
 	proxy_set_header  Host            $host;
@@ -40,6 +48,18 @@ location @prosody {
 	proxy_set_header  Host            $host;
 	proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
 	proxy_set_header  X-Forwarded-Proto https;
+}
+
+location @prosodyws {
+	proxy_pass http://${SNIKKET_TWEAK_INTERNAL_HTTP_HOST}:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT};
+	proxy_http_version 1.1;
+	proxy_set_header  Host            $host;
+	proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header  X-Forwarded-Proto https;
+	proxy_set_header Connection $http_connection;
+	proxy_set_header Upgrade $http_upgrade;
+
+	proxy_read_timeout 900s;
 }
 
 error_page 502 /_errors/502.html;
