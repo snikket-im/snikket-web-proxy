@@ -12,6 +12,10 @@ location /invites_api {
 	try_files none @prosody;
 }
 
+location /invites_bootstrap {
+	try_files none @prosody;
+}
+
 location /oauth2 {
 	try_files none @prosody;
 }
