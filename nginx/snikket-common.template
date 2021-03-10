@@ -74,6 +74,20 @@ location @prosodyws {
 	proxy_read_timeout 900s;
 }
 
+location /_health/portal {
+	proxy_pass http://${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_HOST}:${SNIKKET_TWEAK_PORTAL_INTERNAL_HTTP_PORT}/_health;
+	proxy_set_header  Host            $host;
+	proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header  X-Forwarded-Proto https;
+}
+
+location /_health/xmpp {
+	proxy_pass http://${SNIKKET_TWEAK_INTERNAL_HTTP_HOST}:${SNIKKET_TWEAK_INTERNAL_HTTP_PORT}/host_status_check;
+	proxy_set_header  Host            $host;
+	proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
+	proxy_set_header  X-Forwarded-Proto https;
+}
+
 error_page 502 /_errors/502.html;
 error_page 503 /_errors/503.html;
 error_page 504 /_errors/504.html;
