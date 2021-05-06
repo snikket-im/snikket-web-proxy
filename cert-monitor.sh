@@ -12,6 +12,9 @@ while sleep 10; do
 			/usr/local/bin/render-template.sh "/etc/nginx/templates/$proto" "/etc/nginx/sites-enabled/$proto";
 		done
 		/usr/sbin/nginx -s reload
-		exit 0;
 	fi
+done
+
+while sleep 86400; do
+	/usr/sbin/nginx -s reload;
 done
