@@ -19,6 +19,7 @@ while sleep 10; do
 	fi
 done
 
+# Reload nginx daily to pick up new certificates
 while sleep 86400; do
 	/usr/sbin/nginx -s reload;
 done
