@@ -11,7 +11,7 @@ server {
     }
 
     location / {
-        return 301 https://$host$request_uri;
+        return 301 https://$host:${SNIKKET_TWEAK_HTTPS_PORT}$request_uri;
     }
 }
 
