@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CERT_PATH="/snikket/letsencrypt/live/$SNIKKET_DOMAIN/cert.pem"
+DOMAIN=${SNIKKET_TWEAK_XMPP_DOMAIN:-SNIKKET_DOMAIN}
+CERT_PATH="/snikket/letsencrypt/live/$DOMAIN/cert.pem"
 
 if test -f "$CERT_PATH"; then
 	## Certs already exist - render and deploy configs

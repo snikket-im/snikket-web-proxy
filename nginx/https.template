@@ -2,8 +2,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -21,8 +21,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -48,8 +48,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_TWEAK_CERT_DOMAIN}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
