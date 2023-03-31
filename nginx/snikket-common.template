@@ -29,6 +29,7 @@ location /share {
 }
 
 location /upload {
+	client_max_body_size 104857616; # 100MB + 16 bytes (see Prosody config)
 	try_files none @prosody;
 }
 
