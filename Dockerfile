@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:bookworm-slim
 
 ARG BUILD_SERIES=dev
 ARG BUILD_ID=0
