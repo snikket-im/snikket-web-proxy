@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CERT_PATH="/snikket/letsencrypt/live/$SNIKKET_DOMAIN/cert.pem"
+CERT_PATH="/snikket/letsencrypt/live/$SNIKKET_DOMAIN/fullchain.pem"
 
 while sleep 10; do
 	if test -f "$CERT_PATH"; then
