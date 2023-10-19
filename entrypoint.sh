@@ -12,4 +12,4 @@ else
 	/usr/local/bin/render-template.sh "/etc/nginx/templates/startup" "/etc/nginx/sites-enabled/startup";
 fi
 
-exec supervisord -c /etc/supervisord/supervisord.conf
+exec s6-svscan /etc/sv
