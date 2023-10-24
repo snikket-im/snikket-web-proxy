@@ -23,6 +23,6 @@ while sleep 10; do
 done
 
 # Reload nginx daily to pick up new certificates
-while sleep 86400; do
+while sleep "${SNIKKET_TWEAK_WEB_PROXY_RELOAD_INTERVAL:-86400}"; do
 	/usr/sbin/nginx -s reload;
 done
