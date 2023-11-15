@@ -16,10 +16,6 @@ location /invites_bootstrap {
 	try_files none @prosody;
 }
 
-location /rest {
-	try_files none @prosody;
-}
-
 location /share {
 	alias /usr/share/javascript;
 }
