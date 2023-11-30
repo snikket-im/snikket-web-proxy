@@ -18,7 +18,6 @@ server {
     add_header Strict-Transport-Security "max-age=63072000" always;
 
     server_name ${SNIKKET_DOMAIN};
-    server_name groups.${SNIKKET_DOMAIN};
 
     include "/etc/nginx/snippets/snikket-common.conf";
 }
@@ -46,6 +45,10 @@ server {
 
     root /var/www/html;
 
+    location / {
+        return 301 https://${SNIKKET_DOMAIN}/;
+    }
+
     location /upload/ {
         client_max_body_size 104857616; # 100MB + 16 bytes (see Prosody config)
         proxy_request_buffering off;
@@ -54,6 +57,34 @@ server {
         proxy_set_header  Host            $host;
         proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header  X-Forwarded-Proto https;
+    }
+}
+
+server {
+    listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
+    listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
+
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+
+    ssl_session_cache shared:le_nginx_SSL:1m;
+    ssl_session_timeout 1440m;
+    ssl_prefer_server_ciphers off;
+    ssl_protocols ${SNIKKET_TWEAK_HTTP_TLS_VERSIONS};
+    ssl_ciphers ${SNIKKET_TWEAK_HTTP_TLS_CIPHERS};
+
+    ssl_stapling on;
+    ssl_stapling_verify on;
+    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+
+    add_header Strict-Transport-Security "max-age=63072000" always;
+
+    server_name groups.${SNIKKET_DOMAIN};
+
+    root /var/www/html;
+
+    location / {
+        return 301 https://${SNIKKET_DOMAIN}/;
     }
 }
 
