@@ -2,9 +2,9 @@ server {
     listen ${SNIKKET_TWEAK_HTTP_PORT};
     listen [::]:${SNIKKET_TWEAK_HTTP_PORT};
 
-    server_name ${SNIKKET_DOMAIN};
-    server_name groups.${SNIKKET_DOMAIN};
-    server_name share.${SNIKKET_DOMAIN};
+    server_name ${SNIKKET_DOMAIN_ASCII};
+    server_name groups.${SNIKKET_DOMAIN_ASCII};
+    server_name share.${SNIKKET_DOMAIN_ASCII};
 
     location /.well-known/acme-challenge {
         alias /var/www/html/.well-known/acme-challenge;

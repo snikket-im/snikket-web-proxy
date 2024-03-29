@@ -2,8 +2,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -13,11 +13,11 @@ server {
 
     ssl_stapling on;
     ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
-    server_name ${SNIKKET_DOMAIN};
+    server_name ${SNIKKET_DOMAIN_ASCII};
 
     include "/etc/nginx/snippets/snikket-common.conf";
 }
@@ -26,8 +26,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -37,16 +37,16 @@ server {
 
     ssl_stapling on;
     ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
-    server_name share.${SNIKKET_DOMAIN};
+    server_name share.${SNIKKET_DOMAIN_ASCII};
 
     root /var/www/html;
 
     location / {
-        return 301 https://${SNIKKET_DOMAIN}/;
+        return 301 https://${SNIKKET_DOMAIN_ASCII}/;
     }
 
     location /upload/ {
@@ -64,8 +64,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -75,16 +75,16 @@ server {
 
     ssl_stapling on;
     ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
-    server_name groups.${SNIKKET_DOMAIN};
+    server_name groups.${SNIKKET_DOMAIN_ASCII};
 
     root /var/www/html;
 
     location / {
-        return 301 https://${SNIKKET_DOMAIN}/;
+        return 301 https://${SNIKKET_DOMAIN_ASCII}/;
     }
 }
 
@@ -93,8 +93,8 @@ server {
     listen ${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
     listen [::]:${SNIKKET_TWEAK_HTTPS_PORT} ssl default_server;
 
-    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
-    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/privkey.pem;
+    ssl_certificate     /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
+    ssl_certificate_key /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/privkey.pem;
 
     ssl_session_cache shared:le_nginx_SSL:1m;
     ssl_session_timeout 1440m;
@@ -104,7 +104,7 @@ server {
 
     ssl_stapling on;
     ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN}/fullchain.pem;
+    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
