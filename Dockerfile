@@ -16,6 +16,9 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && rm -rf /var/cache/*
 
+# Required for idn2 to work, and probably generally good
+ENV LANG=C.UTF-8
+
 ADD entrypoint.sh /entrypoint.sh
 ADD render-template.sh /usr/local/bin/render-template.sh
 ADD nginx/nginx.conf /etc/nginx/nginx.conf
