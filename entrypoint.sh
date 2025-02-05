@@ -16,7 +16,7 @@ else
 	/usr/local/bin/render-template.sh "/etc/nginx/templates/startup" "/etc/nginx/sites-enabled/startup";
 fi
 
-if [[ "${#SNIKKET_DOMAIN_ASCII}" -gt 35 ]]; then
+if [ "${#SNIKKET_DOMAIN_ASCII}" -gt 35 ]; then
 	sed 's/server_names_hash_bucket_size .*$/server_names_hash_bucket_size 128;/' nginx/nginx.conf;
 fi
 
