@@ -17,7 +17,7 @@ else
 fi
 
 if [ "${#SNIKKET_DOMAIN_ASCII}" -gt 35 ]; then
-	sed 's/server_names_hash_bucket_size .*$/server_names_hash_bucket_size 128;/' nginx/nginx.conf;
+	sed 's/server_names_hash_bucket_size .*$/server_names_hash_bucket_size 128;/' /etc/nginx/nginx.conf;
 fi
 
 exec s6-svscan /etc/sv
