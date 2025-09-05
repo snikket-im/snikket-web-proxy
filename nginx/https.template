@@ -11,10 +11,6 @@ server {
     ssl_protocols ${SNIKKET_TWEAK_HTTP_TLS_VERSIONS};
     ssl_ciphers ${SNIKKET_TWEAK_HTTP_TLS_CIPHERS};
 
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
-
     add_header Strict-Transport-Security "max-age=63072000" always;
 
     server_name ${SNIKKET_DOMAIN_ASCII};
@@ -34,10 +30,6 @@ server {
     ssl_prefer_server_ciphers off;
     ssl_protocols ${SNIKKET_TWEAK_HTTP_TLS_VERSIONS};
     ssl_ciphers ${SNIKKET_TWEAK_HTTP_TLS_CIPHERS};
-
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
@@ -73,10 +65,6 @@ server {
     ssl_protocols ${SNIKKET_TWEAK_HTTP_TLS_VERSIONS};
     ssl_ciphers ${SNIKKET_TWEAK_HTTP_TLS_CIPHERS};
 
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
-
     add_header Strict-Transport-Security "max-age=63072000" always;
 
     server_name groups.${SNIKKET_DOMAIN_ASCII};
@@ -101,10 +89,6 @@ server {
     ssl_prefer_server_ciphers off;
     ssl_protocols ${SNIKKET_TWEAK_HTTP_TLS_VERSIONS};
     ssl_ciphers ${SNIKKET_TWEAK_HTTP_TLS_CIPHERS};
-
-    ssl_stapling on;
-    ssl_stapling_verify on;
-    ssl_trusted_certificate  /snikket/letsencrypt/live/${SNIKKET_DOMAIN_ASCII}/fullchain.pem;
 
     add_header Strict-Transport-Security "max-age=63072000" always;
 
