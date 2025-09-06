@@ -1,4 +1,4 @@
-FROM debian:bookworm-slim
+FROM debian:trixie-slim
 
 ARG BUILD_SERIES=dev
 ARG BUILD_ID=0
