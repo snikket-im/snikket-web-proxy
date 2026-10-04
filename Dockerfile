@@ -26,6 +26,7 @@ ADD nginx/snikket-common.template /etc/nginx/templates/snikket-common
 ADD nginx/startup.template /etc/nginx/templates/startup
 ADD nginx/http.template /etc/nginx/templates/http
 ADD nginx/https.template /etc/nginx/templates/https
+ADD nginx/proxy.template /etc/nginx/templates/proxy
 ADD service /etc/sv
 ADD static /var/www/html/static
 ADD startup.html /var/www/html/index.html
